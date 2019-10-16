@@ -21,7 +21,7 @@ Procedure to create an environment for the application and launch this applicati
   python flask_app.py
   ```
   (This will start up a Flask web server) <br />
-- Run the application by opening a browser to browse: <br />
+- Run the application by opening a browser to go to: <br />
   ```
   http://localhost:5000
   ```
