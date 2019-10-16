@@ -27,7 +27,8 @@
      conda env create -f environment.yml
      ```
      (This will create a virtual environment 'fenv', as stated at the first line of 'environment.yml', and you may change it. <br />
-      It will also install the relevant Python packages for this web application.) <br />
+      It will also install the relevant Python packages automatically for this web application. <br />
+      You may need to install some package(s)) when the automatic procedure fails.)<br />
    - Activate the virtual environment, fenv by running the command:
      ```
      activate fenv
