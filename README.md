@@ -1,5 +1,5 @@
 # A Getting-Started Example of Flask Web Framework
-Procedure to create an environment for the application and launch it: <br />
+Procedure to create an environment for the application and launch this application: <br />
 - Download the folder 'App' and the file 'environment.yml' <br />
 - Launch an Anaconda command prompt <br />
 - Excute the following command: <br />
