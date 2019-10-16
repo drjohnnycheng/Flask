@@ -1,4 +1,4 @@
-# A Getting-Started Example of Flask Web Framework
+# Two Getting-Started Examples of Flask Web Framework
 1. The simplest web application <br />
    Follow the steps to download and launch the simple application <br />
    - Open an Anaconda Prompt <br />
