@@ -18,7 +18,7 @@
      ```
      http://localhost:5000
      ```
-1. A web application that loads database records and shows a word cloud of the specified text
+1. A web application that loads database records and shows a word cloud of the specified text <br />
    Procedure to create an environment for the application and launch this application: <br />
    - Download the folder 'App' and the file 'environment.yml' <br />
    - Launch an Anaconda command prompt <br />
