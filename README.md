@@ -3,7 +3,9 @@ Procedure of building an environment and running the application: <br />
 - Download the folder 'App' and the file 'environment.yml' <br />
 - Launch an Anaconda command prompt <br />
 - Excute the following command: <br />
-  conda env create -f environment.yml <br />
+  ```
+  conda env create -f environment.yml
+  ```
   (This will create a virtual environment 'fenv', as stated at the first line of 'environment.yml', and you may change it. <br />
    It will also install the relevant Python packages for this web application.) <br />
 - Go to folder 'App' and execute: <br />
