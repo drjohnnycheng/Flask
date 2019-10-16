@@ -197,7 +197,7 @@ dependencies:
     - keras-applications==1.0.8
     - keras-preprocessing==1.1.0
     - loader==2017.9.11
-    - logbook==1.4.3
+    - logbook==1.5.2
     - markdown==3.1.1
     - multidict==4.5.2
     - mysql-connector==2.2.9
