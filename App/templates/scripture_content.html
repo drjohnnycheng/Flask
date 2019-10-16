@@ -1,0 +1,8 @@
+﻿    <table id="content">
+		{% for verse in verses %}
+			<tr>
+				<td nowrap>{{ verse.book }}{{ verse.chapter }}:{{ verse.verse }}</td>
+				<td>{{ verse.scripture }}</td>
+			</tr>
+		{% endfor %}
+    </table>

@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>瀏覽經文 - 和合本</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	var chapterLists = new Array(66) 
+	chapterLists[""] = "選擇篇章"; 
+	{% for item in book_chapters %}
+		chapterLists["{{ item.book }}"] = {{ item.chapters }}
+	{% endfor %}
+
+function bookChange(selectObj) {
+	var idx = selectObj.selectedIndex; 
+	var which = selectObj.options[idx].value; 
+	chap = chapterLists[which]; 
+
+	var cSelect = document.getElementById("chapter"); 
+	var len=cSelect.options.length; 
+
+ 	while (cSelect.options.length > 0) { 
+ 		cSelect.remove(0); 
+ 	} 
+
+	var newOption; 
+	for (var i=1; i<=chap; i++) { 
+ 		newOption = document.createElement("option"); 
+ 		newOption.value = i;
+ 		newOption.text = i; 
+
+ 		try { 
+ 			cSelect.add(newOption); 
+		 } 
+ 		catch (e) { 
+ 			cSelect.appendChild(newOption); 
+		} 
+ 	} 
+ } 
+</script>
+
+<style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+	min-height: 100vh;
+	margin: 0;
+	/* background-image: url("/static/images/Hallstatt.jpg"); */
+	font-family: "微軟正黑體", "Times New Roman";
+	background:#B2EBF2;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 70px 20px;
+  min-height: 100vh;
+}
+
+#Browse {background-color: #6495ED;} /* CornflowerBlue */
+#Fuzzy {background-color: #8FBC8F;} /* DarkSeaGreen */
+#Cloud {background-color: #BC8F8F;} /* RosyBrown */
+#Analytics {background-color: #DAA520;} /* GoldenRod */
+</style>
+</head>
+
+<body>
+
+<button class="tablink" onclick="openPage('Browse', this, '#6495ED')" id="defaultOpen">Browse</button>
+<button class="tablink" onclick="openPage('Fuzzy', this, '#8FBC8F')">Fuzzy</button>
+<button class="tablink" onclick="openPage('Cloud', this, '#BC8F8F')">Cloud</button>
+<button class="tablink" onclick="openPage('Analytics', this, '#DAA520')">Analytics</button>
+
+<div id="Browse" class="tabcontent">
+	<img src="/static/images/search.png" alt="Scripture" style="float:right;width:150px;height:150px;">
+    <h2>瀏覽經文 - 和合本</h2>
+	<label for="book">書卷</label>
+	<select id="book" onchange="bookChange(this);">
+		<option value="" selected disabled hidden>選擇書卷</option>
+	{% for item in book_chapters %}
+		<option value="{{ item.book }}">{{ item.bookF }}</option>
+	{% endfor %}
+	</select>
+	<br />
+	<label for="chapter">篇章</label>
+	<select id="chapter">
+		<option value="" selected disabled hidden>選擇篇章</option>
+	</select>
+	<br />
+	<button>載入經文</button>
+
+	<hr>
+	<div id="scripture_content">
+    <table id="content">
+		{% for verse in verses %}
+			<tr>
+				<td nowrap>{{ verse.book }}{{ verse.chapter }}:{{ verse.verse }}</td>
+				<td>{{ verse.scripture }}</td>
+			</tr>
+		{% endfor %}
+    </table>
+	</div>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    var sbook = $(book).val();
+    var schapter = $(chapter).val();
+
+    $.ajax({
+      url: "/reload",
+      type: "get",
+      data: {jsbook: sbook, jschapter: schapter},
+      success: function(response) {
+        $("#scripture_content").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+
+    $.ajax({
+      url: "/word_cloud",
+      type: "get",
+      data: {jsbook: sbook, jschapter: schapter},
+      success: function(response) {
+        $("#cloud_canvas").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+
+  });
+});
+</script>
+</div>
+
+<div id="Fuzzy" class="tabcontent">
+    <h2>Fuzzy</h2>
+    <p>Perform a fuzzy search with specific criteria!</p> 
+</div>
+
+<div id="Cloud" class="tabcontent">
+    <img src="/static/images/cloud.png" alt="Scripture" style="float:right;width:150px;height:150px;">
+	<div id='cloud_canvas'><img src='{{ cloud_url }}'></img></div>
+
+</div>
+
+<div id="Analytics" class="tabcontent">
+  <h2>Analytics</h2>
+  <p>Perform some text analytics, including keywaord extraction, summarization, and classification!</p>
+</div>
+
+<script>
+function openPage(pageName, elmnt, color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>
