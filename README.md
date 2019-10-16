@@ -8,6 +8,14 @@ Procedure to create an environment for the application and launch this applicati
   ```
   (This will create a virtual environment 'fenv', as stated at the first line of 'environment.yml', and you may change it. <br />
    It will also install the relevant Python packages for this web application.) <br />
+- Activate the virtual environment, fenv by running the command:
+  ```
+  activate fenv
+  ```
+  OR
+  ```
+  conda activate fenv
+  ```
 - Go to folder 'App' and execute: <br />
   ```
   python flask_app.py
