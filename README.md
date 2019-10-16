@@ -1,4 +1,4 @@
-# A getting-started example of Flask web framework
+# A Getting-Started Example of Flask Web Framework
 Procedure of building an environment and running the application: <br />
 - Download the folder 'App' and the file 'environment.yml' <br />
 - Launch an Anaconda command prompt <br />
