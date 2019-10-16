@@ -4,7 +4,7 @@ Procedure of building an environment and running the application: <br />
 - Launch an Anaconda command prompt <br />
 - Excute the following command: <br />
   conda env create -f environment.yml <br />
-  (This will create a virtual environment 'fenv' [as stated at the first line of 'environment.yml' and you may change it.] <br />
+  (This will create a virtual environment 'fenv', as stated at the first line of 'environment.yml', and you may change it. <br />
    It will also install relevant Python packages for this web applications) <br />
 - Go to folder 'App' and execute: <br />
   python flask_app.py <br />
