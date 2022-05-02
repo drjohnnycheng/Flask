@@ -1,0 +1,25 @@
+click==8.1.3
+colorama==0.4.4
+cycler==0.11.0
+Flask==2.1.2
+Flask-SQLAlchemy==2.5.1
+fonttools==4.33.3
+greenlet==1.1.2
+importlib-metadata==4.11.3
+itsdangerous==2.1.2
+jieba==0.42.1
+Jinja2==3.1.2
+kiwisolver==1.4.2
+MarkupSafe==2.1.1
+matplotlib==3.5.1
+numpy==1.22.3
+packaging==21.3
+palettable==3.3.0
+Pillow==9.1.0
+pyparsing==3.0.8
+python-dateutil==2.8.2
+six==1.16.0
+SQLAlchemy==1.4.36
+Werkzeug==2.1.2
+wordcloud @ file:///C:/Users/Johnny/Downloads/4869/flask_app/wordcloud-1.8.1-cp39-cp39-win_amd64.whl
+zipp==3.8.0
