@@ -21,5 +21,4 @@ python-dateutil==2.8.2
 six==1.16.0
 SQLAlchemy==1.4.36
 Werkzeug==2.1.2
-wordcloud @ file:///C:/Users/Johnny/Downloads/4869/flask_app/wordcloud-1.8.1-cp39-cp39-win_amd64.whl
 zipp==3.8.0
