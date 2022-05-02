@@ -29,7 +29,7 @@
      (This will create a virtual environment 'fenv' and you may change it. <br />
       It will also install the relevant Python packages automatically for this web application. <br />
       You may need to install some package(s)) when the automatic procedure fails.)<br />
-   - Download the file 'wordcloud-1.8.1-cp39-cp39-win_amd64.whl' and install the package by runnung the command:
+   - Download the file 'wordcloud-1.8.1-cp39-cp39-win_amd64.whl' and install the package by running the command:
      ```
      python -m pip install wordcloud-1.8.1-cp39-cp39-win_amd64.whl
      ```
