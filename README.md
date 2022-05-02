@@ -24,7 +24,7 @@
    - Launch an Anaconda command prompt <br />
    - Excute the following command: <br />
      ```
-     conda env create -f environment.yml
+     conda create --name fenv --file requirements.txt
      ```
      (This will create a virtual environment 'fenv', as stated at the first line of 'environment.yml', and you may change it. <br />
       It will also install the relevant Python packages automatically for this web application. <br />
