@@ -20,5 +20,5 @@ pyparsing==3.0.8
 python-dateutil==2.8.2
 six==1.16.0
 SQLAlchemy==1.4.36
-Werkzeug==2.1.2
+Werkzeug==2.2.3
 zipp==3.8.0
